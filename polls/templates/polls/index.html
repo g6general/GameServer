@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Game server</title>
+		<link rel="stylesheet" href="{% static "style.css" %}">
+		<script type="text/javascript">var csrf_token = '{{ csrf_token }}';</script>
+		<script src="{% static "main.js" %}" async></script>
+	</head>
+	<body>
+		<table width="1650" align="center" frame="box" rules="all">
+			<tr>
+				<td width="550" height="470">
+					<table width="470" align="center">
+						<form id="add-account" onsubmit="return false;">
+							{% csrf_token %}
+							<tr>
+								<th class="account-title" height="50">Добавить аккаунт</th>
+							</tr>
+							<tr>
+								<th>
+									<table width="465">
+										<tr>
+											<th class="account-key" width="250" height="30" align="left">номер</th>
+											<th align="left">
+												<input disabled placeholder="следующий" id="number-field" class="account-value" type="text" size="20" maxlength="20" name="number">
+											</th>
+										</tr>
+										<tr>
+											<th class="account-key" height="30" align="left">ник</th>
+											<th align="left">
+												<input id="nickname-field" class="account-value" type="text" size="20" maxlength="20" name="nick">
+											</th>
+										</tr>
+										<tr>
+											<th class="account-key" height="30" align="left">дата создания аккаунта</th>
+											<th align="left">
+												<input disabled id="date" placeholder="сегодня" class="account-value" type="text" size="20" maxlength="20" name="date">
+											</th>
+										</tr>
+										<tr>
+											<th class="account-key" height="30" align="left">язык</th>
+											<th align="left">
+												<select id="language-field" name="language" size="1" class="account-select" style="width: 100px">
+													<option selected value="russian">русский
+													<option value="english">english
+												</select>
+											</th>
+										</tr>
+										<tr>
+											<th class="account-key" height="30" align="left">Facebook аккаунт</th>
+											<th align="left">
+												<select id="facebook-field" name="facebook" size="1" class="account-select" style="width: 100px">
+													<option selected value="true">есть
+													<option value="false">нет
+												</select>
+											</th>
+										</tr>
+										<tr>
+											<th class="account-key" height="30" align="left">Apple аккаунт</th>
+											<th align="left">
+												<select id="apple-field" name="apple" size="1" class="account-select" style="width: 100px">
+													<option selected value="true">есть
+													<option value="false">нет
+												</select>
+											</th>
+										</tr>
+										<tr>
+											<th class="account-key" height="30" align="left">Google аккаунт</th>
+											<th align="left">
+												<select id="google-field" name="google" size="1" class="account-select" style="width: 100px">
+													<option selected value="true">есть
+													<option value="false">нет
+												</select>
+											</th>
+										</tr>
+										<tr>
+											<th class="account-key" height="30" align="left">время пребывания в игре</th>
+											<th align="left">
+												<input id="time-field" class="account-value" type="text" size="20" maxlength="20" name="time-in-game">
+											</th>
+										</tr>
+										<tr>
+											<th class="account-key" height="30" align="left">число сессий</th>
+											<th align="left">
+												<input id="number-of-sessions-field" class="account-value" type="text" size="20" maxlength="20" name="number-of-sessions">
+											</th>
+										</tr>
+										<tr>
+											<th class="account-key" height="30" align="left">среднее время одной сессии</th>
+											<th align="left">
+												<input id="average-session-time-field" class="account-value" type="text" size="20" maxlength="20" name="session-time">
+											</th>
+										</tr>
+									</table>
+								</th>
+							</tr>
+							<tr>
+								<th height="50" align="center">
+									<button disabled id="button-add" style="width:100px; height:30px" class="account-button">Добавить</button>
+								</th>
+							</tr>
+						</form>
+					</table>
+				</td>
+				<td width="550">
+					<table width="470" align="center">
+						<tr>
+							<th class="account-title" height="50">Аналитика по игроку</th>
+						</tr>
+						<tr>
+							<th>
+								<table width="465">
+									<tr>
+										<th class="account-key" width="50%" height="30" align="left">активный</th>
+										<th>
+											<form>
+												<input id="analytics_active" class="account-value" type="text" readonly size="23" maxlength="23">
+											</form>
+										</th>
+									</tr>
+									<tr>
+										<th class="account-key" height="30" align="left">коэф платежеспособности</th>
+										<th>
+											<form>
+												<input id="analytics_coefficient" class="account-value" type="text" readonly size="23" maxlength="23">
+											</form>
+										</th>
+									</tr>
+									<tr>
+										<th class="account-key" height="30" align="left">метрика игрока</th>
+										<th>
+											<form>
+												<input id="analytics_metrics" class="account-value" type="text" readonly size="23" maxlength="23">
+											</form>
+										</th>
+									</tr>
+								</table>
+							</th>
+						</tr>
+					</table>
+					<br>
+					<table width="470" align="center">
+						<tr>
+							<th class="account-title" height="50">Статистика</th>
+						</tr>
+						<tr>
+							<th>
+								<table width="465">
+									<tr>
+										<th class="account-key" width="49%" height="30" align="left">всего игроков</th>
+										<th align="left">
+											<form>
+												<input id="all-gamers" class="account-value" type="text" readonly size="23" maxlength="23" placeholder="0">
+											</form>
+										</th>
+									</tr>
+									<tr>
+										<th class="account-key" height="30" align="left">всего забаненых</th>
+										<th align="left">
+											<form>
+												<input id="all-banned" class="account-value" type="text" readonly size="23" maxlength="23" placeholder="0">
+											</form>
+										</th>
+									</tr>
+									<tr>
+										<th class="account-key" height="30" align="left">всего платящих</th>
+										<th align="left">
+											<form>
+												<input id="all-paying" class="account-value" type="text" readonly size="23" maxlength="23" placeholder="0">
+											</form>
+										</th>
+									</tr>
+									<tr>
+										<th class="account-key" height="30" align="left">всего активных</th>
+										<th align="left">
+											<form>
+												<input id="all-active" class="account-value" type="text" readonly size="23" maxlength="23" placeholder="0">
+											</form>
+										</th>
+									</tr>
+									<tr>
+										<th class="account-key" height="30" align="left">всего оставлено денег</th>
+										<th align="left">
+											<form>
+												<input id="all-money" class="account-value" type="text" readonly size="23" maxlength="23" placeholder="0">
+											</form>
+										</th>
+									</tr>
+								</table>
+							</th>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<table width="470" align="center">
+						<tr>
+							<th class="account-title" height="50">Данные игрока</th>
+						</tr>
+						<tr>
+							<th>
+								<table width="465">
+									<tr>
+										<th class="account-key" width="150" height="30" align="left">уровень</th>
+										<th align="left">
+											<input id="gamer-level" class="account-value" type="text" readonly size="15" maxlength="15">
+										</th>
+										<th class="account-key" width="150">
+											<button disabled id="button-plus-1" style="width:40px; height:30px" class="account-button">+</button>
+											<button disabled id="button-minus-1" style="width:40px; height:30px" class="account-button">-</button>
+										</th>
+									</tr>
+									<tr>
+										<th class="account-key" height="30" align="left">монеты</th>
+										<th align="left">
+											<input id="gamer-coins" class="account-value" type="text" readonly size="15" maxlength="15">
+										</th>
+										<th class="account-key" width="150">
+											<button disabled id="button-plus-2" style="width:40px; height:30px" class="account-button">+</button>
+											<button disabled id="button-minus-2" style="width:40px; height:30px" class="account-button">-</button>
+										</th>
+									</tr>
+									<tr>
+										<th class="account-key" height="30" align="left">кристаллы</th>
+										<th align="left">
+											<input id="gamer-crystals" class="account-value" type="text" readonly size="15" maxlength="15">
+										</th>
+										<th class="account-key" width="150">
+											<button disabled id="button-plus-3" style="width:40px; height:30px" class="account-button">+</button>
+											<button disabled id="button-minus-3"style="width:40px; height:30px" class="account-button">-</button>
+										</th>
+									</tr>
+									<tr>
+										<th class="account-key" height="30" align="left">энергия</th>
+										<th align="left">
+											<input id="gamer-energy" class="account-value" type="text" readonly size="15" maxlength="15">
+										</th>
+										<th class="account-key" width="150">
+											<button disabled id="button-plus-4" style="width:40px; height:30px" class="account-button">+</button>
+											<button disabled id="button-minus-4" style="width:40px; height:30px" class="account-button">-</button>
+										</th>
+									</tr>
+									<tr>
+										<th class="account-key" height="30" align="left">инвентарь</th>
+										<th align="left">
+											<input id="gamer-inventory" class="account-value" type="text" readonly size="15" maxlength="15">
+										</th>
+										<th class="account-key" width="150">
+											<button disabled id="button-plus-5" style="width:40px; height:30px" class="account-button">+</button>
+											<button disabled id="button-minus-5" style="width:40px; height:30px" class="account-button">-</button>
+										</th>
+									</tr>
+									<tr>
+										<th class="account-key" height="30" align="left">расходники</th>
+										<th align="left">
+											<input id="gamer-consumables" class="account-value" type="text" readonly size="15" maxlength="15">
+										</th>
+										<th class="account-key" width="150">
+											<button disabled id="button-plus-6" style="width:40px; height:30px" class="account-button">+</button>
+											<button disabled id="button-minus-6" style="width:40px; height:30px" class="account-button">-</button>
+										</th>
+									</tr>
+									<tr>
+										<th class="account-key" height="30" align="left">мастерство</th>
+										<th align="left">
+											<input id="gamer-skill" class="account-value" type="text" readonly size="15" maxlength="15">
+										</th>
+										<th class="account-key" width="150">
+											<button disabled id="button-plus-7" style="width:40px; height:30px" class="account-button">+</button>
+											<button disabled id="button-minus-7" style="width:40px; height:30px" class="account-button">-</button>
+										</th>
+									</tr>
+									<tr>
+										<th class="account-key" height="30" align="left">оставил денег</th>
+										<th align="left">
+											<input id="gamer-payed" class="account-value" type="text" readonly size="15" maxlength="15">
+										</th>
+										<th class="account-key" width="150">
+											<button disabled id="button-plus-8" style="width:40px; height:30px" class="account-button">+</button>
+											<button disabled id="button-minus-8" style="width:40px; height:30px" class="account-button">-</button>
+										</th>
+									</tr>
+									<tr>
+										<th class="account-key" height="30" align="left">платящий</th>
+										<th align="left">
+											<input id="gamer-paying" class="account-value" type="text" readonly size="15" maxlength="15">
+										</th>
+										<th class="account-key" width="150">
+											<button disabled id="button-yes-1" style="width:40px; height:30px" class="account-button">Да</button>
+											<button disabled id="button-no-1" style="width:40px; height:30px" class="account-button">Нет</button>
+										</th>
+									</tr>
+									<tr>
+										<th class="account-key" height="30" align="left">забанен</th>
+										<th align="left">
+											<input id="gamer-banned" class="account-value" type="text" readonly size="15" maxlength="15">
+										</th>
+										<th class="account-key" width="150">
+											<button disabled id="button-yes-2" style="width:40px; height:30px" class="account-button">Да</button>
+											<button id="button-no-2" disabled style="width:40px; height:30px" class="account-button">Нет</button>
+										</th>
+									</tr>
+								</table>
+							</th>
+						</tr>
+						<tr>
+							<th>
+								<table width="465">
+									<tr>
+										<th height="50" align="center">
+											<form onsubmit="return false;">
+												<button disabled id="button-save" style="width:100px; height:30px" class="account-button">Сохранить</button>
+											</form>
+										</th>
+										<th height="50" align="center">
+											<form onsubmit="return false;">
+												<button disabled id="button-remove" style="width:100px; height:30px" class="account-button">Удалить</button>
+											</form>
+										</th>
+									</tr>
+								</table>
+							</th>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<div id="data-table" style="position: absolute; left: 15px; top: 481px">
+			<p align="center" class="data-title">Аккаунты</p>
+			<table id="data" width="1500" align="center" frame="box" rules="all">
+				<tr>
+					<th class="data-row" width="90" height="25">номер</th>
+					<th class="data-row" width="220">ник</th>
+					<th class="data-row" width="120">дата создания</th>
+					<th class="data-row" width="100">язык</th>
+					<th class="data-row" width="100">Facebook</th>
+					<th class="data-row" width="100">Apple</th>
+					<th class="data-row" width="100">Google</th>
+					<th class="data-row" width="120">время в игре</th>
+					<th class="data-row" width="120">число сессий</th>
+					<th class="data-row" width="170">время одной сессии</th>
+				</tr>
+				{% for account in accounts %}
+				<tr {% if account.banned %} banned {% endif %}>
+					<th class="data-row" height="30">{{ account.number }}</th>
+					<th class="data-row">{{ account.nickname }}</th>
+					<th class="data-row">{{ account.date }}</th>
+					<th class="data-row">{{ account.language }}</th>
+					<th class="data-row">{{ account.facebook }}</th>
+					<th class="data-row">{{ account.apple }}</th>
+					<th class="data-row">{{ account.google }}</th>
+					<th class="data-row">{{ account.timeInGame }}</th>
+					<th class="data-row">{{ account.numberOfSessions }}</th>
+					<th class="data-row">{{ account.sessionTime }}</th>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</body>
+</html>

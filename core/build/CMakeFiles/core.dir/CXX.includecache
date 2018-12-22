@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../headers/account.h
+iostream
+-
+string
+-
+api.h
+../headers/api.h
+
+../headers/api.h
+
+../headers/funcs.h
+vector
+-
+map
+-
+account.h
+../headers/account.h
+
+/Users/alexey/Documents/reps/Game project/django_test/core/funcs.cpp
+funcs.h
+/Users/alexey/Documents/reps/Game project/django_test/core/funcs.h
+

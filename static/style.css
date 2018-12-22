@@ -1,0 +1,43 @@
+.account-title {
+	font-size: 22px;
+	font-family: 'Caveat', cursive;
+}
+
+.account-key, .table-row {
+	font-size: 16px;
+	font-weight: lighter;
+	font-family: 'Caveat', cursive;
+	font-family: 'Lato', sans-serif;
+}
+
+.account-select {
+	font-size: 15px;
+}
+
+.account-value {
+	font-size: 16px;
+}
+
+.account-button {
+	font-size: 15px;
+}
+
+.data-title {
+	font-size: 22px;
+	font-family: 'Caveat', cursive;
+	font-weight: bold;
+}
+
+.data-row {
+	font-size: 16px;
+	font-weight: normal;
+	font-family: 'Caveat', cursive;
+	font-family: 'Lato', sans-serif;
+}
+
+#data-table {
+	width: 1648px;
+	height: 490px;
+	border: 1px solid #000000;
+	overflow: auto;
+}
