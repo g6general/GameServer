@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/c++  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk -dynamiclib -Wl,-headerpad_max_install_names  -o libcore.dylib -install_name @rpath/libcore.dylib CMakeFiles/core.dir/account.cpp.o CMakeFiles/core.dir/funcs.cpp.o CMakeFiles/core.dir/api.cpp.o 
