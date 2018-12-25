@@ -1,3 +1,11 @@
 .DS_Store
 __pycache__
 virt/
+
+CMakeCache.txt
+CMakeFiles/
+Makefile
+*.cmake
+*.dylib
+*.so
+*.dll
