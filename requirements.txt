@@ -1,4 +1,3 @@
-Python==3.7.0
 pycryptodome==3.7.2
 cymysql==0.9.12
 django-cymysql==2.1.0
