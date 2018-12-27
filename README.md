@@ -7,7 +7,7 @@
 * MySQL 8.0.12
 * CMake 3.13.1
 
-### Установка и запуск (for macOS)
+### Установка и запуск (for macOS and linux)
 
 1. Клонирование репозитория  
 `$ git clone https://github.com/g6general/Server.git` (https)    
