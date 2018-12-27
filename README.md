@@ -1,3 +1,3 @@
-Макет сервера
+# Макет игрового сервера
 
-Использует стек: HTML/JS/Python/Django/MySQL/C++
+Используется стек технологий: HTML/JS/Python/Django/MySQL/C++
