@@ -77,9 +77,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'mysql_cymysql',
         'NAME': 'accounts',
-        'HOST': 'localhost',
-        'USER': 'django_user',
-        'PASSWORD': 'django_passwd'
+        'HOST': '%',
+        'USER': 'gameserver',
+        'PASSWORD': 'game_server'
     }
 }
 
