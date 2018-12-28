@@ -3,7 +3,7 @@ import ctypes
 
 CORE_LIBRARY = ''
 
-if sys.platform == 'linux2':
+if sys.platform == 'linux' or sys.platform == 'linux2':
 	CORE_LIBRARY = 'libcore.so'
 elif sys.platform == 'darwin':
 	CORE_LIBRARY = 'libcore.dylib'

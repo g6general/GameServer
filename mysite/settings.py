@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mysql_cymysql',
-        'NAME': 'accounts',
+        'NAME': 'gameserver$accounts',
         'HOST': '%',
         'USER': 'gameserver',
         'PASSWORD': 'game_server'
