@@ -7,7 +7,7 @@
 * MySQL 8.0.12
 * CMake 3.13.1
 
-### Установка и запуск (for macOS and linux)
+### Установка и запуск (for macOS and linux)  
 
 1. Клонирование репозитория  
 `$ git clone https://github.com/g6general/Server.git` (https)    
@@ -31,12 +31,15 @@
 `mysql> CREATE USER 'django_user'@'localhost' IDENTIFIED BY 'django_passwd';`   
 `mysql> GRANT ALL PRIVILEGES ON accounts.* TO 'django_user'@'localhost';`  
 `mysql> FLUSH PRIVILEGES;`  
-`mysql> exit;`  
-6. Создание пользователя для админки Django (только при 1-ом клонировании)  
+`mysql> exit;` 
+6. Миграции и синхронизация с базой данных   
+`(virt)$ python ./manage.py makemigrations`  
+`(virt)$ python ./manage.py migrate --run-syncdb`
+7. Создание пользователя для админки Django (только при 1-ом клонировании)  
 `(virt)$ python ./manage.py createsuperuser`  
 `(virt)$ Username: <user_name>`  
 `(virt)$ Email address: <email_adress>`  
 `(virt)$ Password: <password>`  
 `(virt)$ Password (again): <password>`  
-7. Запуск сервера    
+8. Запуск сервера    
 `(virt)$ python ./manage.py runserver` (сервер MySQL должен быть запущен)
