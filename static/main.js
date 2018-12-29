@@ -1,4 +1,5 @@
-var BASE_URL = 'http://127.0.0.1:8000/';
+//var BASE_URL = 'http://127.0.0.1:8000/';
+var BASE_URL = 'http://gameserver.pythonanywhere.com/';
 var ADD_URL = 'add/';
 var SAVE_URL = 'save/';
 var REMOVE_URL = 'remove/';

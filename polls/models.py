@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.db import models
 from core.wrapper import *
 
@@ -63,7 +65,7 @@ def createAccount(data = []):
 
 	newAccount.save()
 	return newId
-	
+
 def editAccount(id, data):
 	account = getAccountById(id)
 	account.level = data[0]

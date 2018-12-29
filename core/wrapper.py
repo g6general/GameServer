@@ -10,7 +10,8 @@ elif sys.platform == 'darwin':
 elif sys.platform == 'win32':
 	CORE_LIBRARY = 'core.dll'
 
-core = ctypes.CDLL('./core/build/' + CORE_LIBRARY)
+#core = ctypes.CDLL('./core/build/' + CORE_LIBRARY)
+core = ctypes.CDLL('/home/gameserver/Server/core/build/' + CORE_LIBRARY)
 
 class s_account(ctypes.Structure):
 	_fields_ = [

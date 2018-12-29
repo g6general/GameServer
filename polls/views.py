@@ -5,7 +5,8 @@ from .models import getAllAccounts, createAccount, deleteAccount
 from .models import editAccount, statistics, analytics, getAccountById
 from django.middleware.csrf import get_token
 
-INDEX_URL = 'http://127.0.0.1:8000/'
+#INDEX_URL = 'http://127.0.0.1:8000/'
+INDEX_URL = 'http://gameserver.pythonanywhere.com/'
 
 DEFAULT_DATE = 'today'
 DEFAULT_LEVEL = 0

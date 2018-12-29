@@ -24,7 +24,10 @@ SECRET_KEY = 'ky+yz2(b_=b1*hj1f-$vjzl)$cqgi@^rf=b)k2@na5%)rimdkj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'gameserver.pythonanywhere.com'
+]
 
 
 # Application definition
@@ -77,9 +80,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'mysql_cymysql',
         'NAME': 'gameserver$accounts',
-        'HOST': '%',
+        'HOST': 'gameserver.mysql.pythonanywhere-services.com',
         'USER': 'gameserver',
-        'PASSWORD': 'game_server'
+        'PASSWORD': 'game_root'
     }
 }
 
