@@ -15,7 +15,7 @@
 
 2. Создание виртуального окружения (optional)   
 `$ cd ./Server`  
-`$ python3 -m vena virt` (название "virt" указано в .gitignore)  
+`$ python3 -m venv virt` (название "virt" указано в .gitignore)  
 `$ source ./virt/bin/activate` (вход)  
 `$ deactivate` (выход)  
 3. Установка зависимостей  
