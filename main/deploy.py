@@ -18,4 +18,4 @@ production = {
 
 # development if local
 # production if internet
-deploy = production
+deploy = development
