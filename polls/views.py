@@ -4,7 +4,7 @@ from django.template import loader
 from .models import getAllAccounts, createAccount, deleteAccount
 from .models import editAccount, statistics, analytics, getAccountById
 from django.middleware.csrf import get_token
-from main.deploy import deploy
+from mysite.deploy import deploy
 
 INDEX_URL = deploy['url']
 

@@ -1,6 +1,6 @@
 import sys
 import ctypes
-from main.deploy import deploy
+from mysite.deploy import deploy
 
 CORE_LIBRARY = ''
 
