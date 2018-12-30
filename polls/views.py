@@ -21,7 +21,7 @@ DEFAULT_PAYING = False
 DEFAULT_BANNED = False
 
 def index(request):
-	template = loader.get_template('polls/index.html')
+	template = loader.get_template('index.html')
 	accounts = getAllAccounts()
 	context = {
 		'accounts': accounts,
