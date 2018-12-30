@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from .deploy import deploy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -79,13 +80,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mysql_cymysql',
-        'NAME': 'gameserver$accounts',
-        'HOST': 'gameserver.mysql.pythonanywhere-services.com',
-        'USER': 'gameserver',
-        'PASSWORD': 'game_root'
+        'NAME': deploy['db_name'],
+        'HOST': deploy['host'],
+        'USER': deploy['user'],
+        'PASSWORD': deploy['password']
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
