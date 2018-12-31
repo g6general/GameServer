@@ -8,7 +8,7 @@ development = {
 }
 
 production = {
-	'url': 'http://gameserver.pythonanywhere.com/',
+	'url': 'https://gameserver.pythonanywhere.com/',
 	'db_name': 'gameserver$accounts',
 	'host': 'gameserver.mysql.pythonanywhere-services.com',
 	'user': 'gameserver',
