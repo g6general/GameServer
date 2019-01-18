@@ -52,6 +52,7 @@ def addAccount(request):
 			DEFAULT_PAYING,
 			DEFAULT_BANNED
 		]
+
 		newId = createAccount(data)
 
 		response = None
@@ -59,7 +60,7 @@ def addAccount(request):
 		if request.POST['from-whom'] == 'browser':
 			response = HttpResponseRedirect(INDEX_URL)
 		elif request.POST['from-whom'] == 'game':
-			response = newId
+			response = JsonResponse({'new_id': newId})
 		return response
 
 	return HttpResponseRedirect(INDEX_URL)
