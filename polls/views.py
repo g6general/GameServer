@@ -5,6 +5,7 @@ from .models import getAllAccounts, createAccount, deleteAccount
 from .models import editAccount, statistics, analytics, getAccountById
 from django.middleware.csrf import get_token
 from mysite.deploy import deploy
+from django.views.decorators.csrf import csrf_exempt
 
 INDEX_URL = deploy['url']
 
@@ -29,6 +30,7 @@ def index(request):
 	}
 	return HttpResponse(template.render(context, request))
 
+#@csrf_exempt
 def addAccount(request):
 	if request.method == 'POST':
 		data = [
