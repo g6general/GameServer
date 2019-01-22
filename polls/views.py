@@ -83,6 +83,15 @@ def saveAccount(request):
 			True if request.POST['banned'] == 'True' else False
 		]
 		editAccount(accountId, data)
+
+		response = None
+
+		if request.POST['from-whom'] == 'browser':
+			response = HttpResponseRedirect(INDEX_URL)
+		elif request.POST['from-whom'] == 'game':
+			response = JsonResponse({'status': 'success'})
+		return response
+
 	return HttpResponseRedirect(INDEX_URL)
 
 def removeAccount(request, id):
